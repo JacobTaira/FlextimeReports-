@@ -1,23 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Submission</title>
-</head>
-<body>
-    <h1>Submit Your Information</h1>
-    <form action="/submit" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Submission</title>
         
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-        
-        <button type="submit">Submit</button>
-    </form>
-</body>
+        <script>
+            function toggleOtherInput(value) {
+                const otherInput = document.getElementById('otherOptionInput');
+                if (value === 'Other') {
+                    otherInput.style.display = 'block';
+                } else {
+                    otherInput.style.display = 'none';
+                    // clears the input when not needed
+                    otherInput.value = ''; 
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <div class="form-container">
+            <h1>Submit Your Information</h1>
+            <form action="/submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="options">Select an Option:</label>
+                <select id="options" name="option" onchange="toggleOtherInput(this.value)" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                    <option value="Option 3">Option 3</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <input type="text" id="otherOptionInput" name="other_option" placeholder="Please specify">
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #otherOptionInput {
+            display: none;
+        }
+    </style>
 </html>

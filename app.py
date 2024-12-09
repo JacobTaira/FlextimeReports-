@@ -8,11 +8,22 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    # Extract data from the form
     name = request.form.get('name')
     email = request.form.get('email')
+    option = request.form.get('option')
+    other_option = request.form.get('other_option')
+    
+    # Use the "Other" input if selected
+    selected_option = other_option if option == 'Other' else option
+
     message = request.form.get('message')
-    return render_template('result.html', name=name, email=email, message=message)
+    return render_template(
+        'result.html', 
+        name=name, 
+        email=email, 
+        selected_option=selected_option, 
+        message=message
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
