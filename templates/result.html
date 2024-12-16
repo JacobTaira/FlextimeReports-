@@ -4,13 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .result-container {
+            background: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            border: 2px solid #125a8a; /* Thin blue border around the result container */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #125a8a;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #125a8a;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #f6ca2c;
+            color: #125a8a;
+        }
+    </style>
 </head>
 <body>
-    <h1>Form Submitted Successfully</h1>
-    <p><strong>Name:</strong> {{ name }}</p>
-    <p><strong>Email:</strong> {{ email }}</p>
-    <p><strong>Selected Option:</strong> {{ selected_option }}</p>
-    <p><strong>Message:</strong> {{ message }}</p>
-    <a href="/">Back to Form</a>
+    <div class="result-container">
+        <h1>Form Submitted Successfully</h1>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Selected Option:</strong> {{ selected_option }}</p>
+        <p><strong>Message:</strong> {{ message }}</p>
+        <a href="/">Back to Form</a>
+    </div>
 </body>
 </html>
